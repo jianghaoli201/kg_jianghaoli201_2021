@@ -22,7 +22,6 @@ function convertWordToChar(word) {
     return w;
 }
 
-
 function convertNum(arr) {
     var res = '';
     var splitArr = new Array(arr.length);
@@ -33,6 +32,10 @@ function convertNum(arr) {
 
     for (i = 0; i < splitArr.length; i++) {
         for (j = 0; j < splitArr[i].length; j++) {
+            if (!(splitArr[i][j] in dict)) {
+                console.log("Invalid input! Please use numbers.");
+                return
+            } 
             res += dict[splitArr[i][j]];
         }
         res += ',';
