@@ -13,34 +13,33 @@ var dict = {
 }
 
 function convertWordToChar(word) {
-    var w;
     if (word.length > 1) {
-        w = word.split("");
+        return word.split("");
     } else {
         return Array(word);
     }
-    return w;
 }
 
 function convertNum(arr) {
-    var res = '';
-    var splitArr = new Array(arr.length);
+    let splitArr = new Array(arr.length);
+    let res = [];
 
     for (i = 0; i < arr.length; i++) {
         splitArr[i] = convertWordToChar(arr[i]);
     }
 
     for (i = 0; i < splitArr.length; i++) {
+        let word = [];
         for (j = 0; j < splitArr[i].length; j++) {
             if (!(splitArr[i][j] in dict)) {
                 console.log("Invalid input! Please use numbers.");
                 return
             } 
-            res += dict[splitArr[i][j]];
+            word.push(dict[splitArr[i][j]]);
         }
-        res += ',';
+        res.push(word.join(""));
     }
-    console.log(res)
+    console.log(res.join(","))
     return res
 }
 
